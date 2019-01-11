@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>Grid Template Areas</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item item1">
+      <p>I'm Sidebar #1</p>
+    </div>
+    <div class="item item2">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, sed.</p>
+      <p>Lorem ipsum d</p>
+    </div>
+    <div class="item item3">
+      <p>I'm Sidebar #2</p>
+    </div>
+    <div class="item footer">
+      <p>I'm the footer</p>
+    </div>
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: 150px 150px 150px 100px;
+      grid-template-areas:
+        'side-1 content side-2'
+        'side-1 content side-2'
+        'side-1 content side-2'
+        'footer footer footer'
+    }
+    .item1 {
+      grid-area: side-1;
+    }
+    .item2 {
+      grid-area: content;
+    }
+    .item3 {
+      grid-area: side-2;
+    }
+    .footer {
+      grid-area: footer;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-areas:
+          'side-2 side-1 side-1'
+          'side-2 content content'
+          'side-2 content content'
+          'footer footer footer'
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        grid-template-areas:
+          'side-1 side-1 side-1'
+          'side-2 content content'
+          'side-2 content content'
+          'side-2 footer footer'
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        grid-template-areas:
+          'side-1 side-1 side-1'
+          'side-2 side-2 side-2'
+          'content content content'
+          'footer footer footer'
+      }
+    }
+
+  </style>
+</body>
+
+</html>
